@@ -81,7 +81,7 @@ my_pub.cpp >> main.cpp로 이름변경
 MyPublisher.h  ,  MyPublisher.cpp 새파일 만들기, 코드작성
 
 
-# 한글 안될 때 : Ctrl+Shift+P -> Language -> 한글,,,,
+# 한글 안될 때 : Ctrl+Shift+P -> Language -> 한글,,,,display
 
 
 CMakeLists.txt에서
