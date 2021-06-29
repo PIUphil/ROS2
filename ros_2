@@ -1,0 +1,117 @@
+cd /opt
+ls
+
+cd ros
+ls
+
+
+ls
+
+pwd
+
+
+--------------------------------------
+
+https://docs.ros.org/en/dashing/Tutorials/Parameters/Understanding-ROS2-Parameters.html
+
+ros2 param list
+ros2 param get /turtlesim background_g
+ros2 param set /turtlesim background_r 150
+
+
+ros2 node info /turtlesim
+
+ros2 action list
+ros2 action list -t		# RotateAbsolute type
+ros2 action info /turtle1/rotate_absolute
+ros2 action show turtlesim/action/RotateAbsolute
+
+ros2 action send_goal /turtle1/rotate_absolute turtlesim/action/RotateAbsolute "{theta: -1.57}" --feedback
+
+Message [1. Info 2. Warn]
+ -> Logger level 
+
+visual studio code
+Debian			데비안 64비트
+save file		파일저장
+
+dpkg 데비안패키지
+sudo dpkg -i code_1.57.1-1623937013_amd64.deb
+
+
+extensions (Ctrl+Shift+X)
+  Korean Language Pack for Visual Studio Code 인스톨
+  c/c++  인스톨
+  Python 인스톨
+  CMake, CMake Tools 인스톨
+  Ros 인스톨
+
+
+# rcl = robot client library (c-rclcpp, py-rclpy ...)
+# std_msgs = standard messages
+
+
+
+cd colcon_ws		ws : WorkSpace
+cd src
+
+ros2 pkg create my_pkg --build-type ament_cmake --dependencies rclcpp std_msgs --node-name my_sub # 하지마시오
+
+폴더열기 - colcon_ws - src  >> 화면오른쪽위 확인(ok)버튼
+
+
+
+///// subscribe 삭제
+
+cd colcon_ws/src
+rm -r my_pkg
+
+
+///// publish 만들기
+
+ros2 pkg create my_pkg --build-type ament_cmake --dependencies rclcpp std_msgs --node-name my_pub
+
+
+# echo를 쓰면 topic을 받아볼 수 있음
+
+code >> vscode실행됨
+
+src폴더에
+my_pub.cpp >> main.cpp로 이름변경
+MyPublisher.h  ,  MyPublisher.cpp 새파일 만들기, 코드작성
+
+
+# 한글 안될 때 : Ctrl+Shift+P -> Language -> 한글,,,,
+
+
+CMakeLists.txt에서
+add_executable(my_pub src/main.cpp src/MyPublisher.h src/MyPublisher.cpp) 으로 변경
+
+
+cd ..		# ~/colcon_ws
+cat ~/.bashrc
+
+
+
+colcon build
+
+
+source ~/.bashrc
+
+
+ros2 pkg excutables my_pkg
+
+
+ros2 run my_pkg my_pub
+
+
+ 다른 터미널 창에서
+ros2 topic echo /my_topic 			# 토픽 : /my_topic
+
+
+
+
+
+
+
+
