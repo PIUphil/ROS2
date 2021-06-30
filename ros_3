@@ -1,0 +1,9 @@
+ros2 run turtlesim turtlesim_node
+
+ros2 topic list -t
+
+ros2 pkg create turtle_pkg --build-type ament_cmake --dependencies rclcpp geometry_msgs --node-name teleop_pub
+
+
+
+
