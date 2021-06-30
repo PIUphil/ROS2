@@ -15,9 +15,11 @@ cd colcon_ws
 	ros2 run turtle_pkg teleop_pub
 
 
-i,j,k,l
-i:전진, k:후진, j:좌회전, l:우회전
+i,j,m,l
+i:전진, m:후진, j:좌회전, l:우회전
 
+
+터틀시뮬레이터 나만 사용하기 -> namespace 지정해줌 (토픽 앞에 추가)
 
 ros2 run turtlesim turtlesim_node -r __ns:=/phil
 # ros2 run turtlesim turtlesim_node -r __ns:=/phil -r chatter:=/turtle1/cmd_vel
@@ -51,7 +53,7 @@ ros2 topic echo /battery_state
 ros2 topic list -t
 
 ros2 topic pub /cmd_vel /geometry_msgs/msg/Twist "{linear: {x: 2.0, y: 0.0, z: 0.0}, angular: {x: 0.0, y: 0.0, z: 0.0}}"
-# 안됨 Thepassed message type is invalid
+# 안됨 - The passed message type is invalid
 
 ros2 topic echo /magnetic_field
 ros2 topic echo /imu
