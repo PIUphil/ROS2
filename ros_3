@@ -21,3 +21,26 @@ i:전진, k:후진, j:좌회전, l:우회전
 
 ros2 run turtlesim turtlesim_node -r __ns:=/phil
 # ros2 run turtlesim turtlesim_node -r __ns:=/phil -r chatter:=/turtle1/cmd_vel
+
+
+
+wifi
+
+sudo apt install net-tools
+
+linux 		> 10.42.0.95
+turtlebot(ap) 	> 10.42.0.1
+
+
+원격으로 터미널 접속  >> 터틀봇
+ssh ubuntu@10.42.0.1
+yes
+패스워드 : edgeilab
+
+
+새로운 터미널창 열기  >> pc
+ros2 node list
+
+
+터틀봇쪽 터미널창
+ros2 launch turtlebot3_bringup robot.launch.py
