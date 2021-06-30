@@ -1,9 +1,15 @@
 ros2 run turtlesim turtlesim_node
 
-ros2 topic list -t
-
 ros2 pkg create turtle_pkg --build-type ament_cmake --dependencies rclcpp geometry_msgs --node-name teleop_pub
 
 
 
+ros2 topic list -t
+ros2 topic echo /turtle1/cmd_vel
 
+
+cd colcon_ws
+	colcon build
+	source ~/.bashrc
+	ros2 pkg excutables turtle_pkg
+	ros2 run turtle_pkg teleop_pub
