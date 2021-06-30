@@ -44,3 +44,14 @@ ros2 node list
 
 터틀봇쪽 터미널창
 ros2 launch turtlebot3_bringup robot.launch.py
+
+((pc))
+ros2 topic echo /battery_state
+
+ros2 topic list -t
+
+ros2 topic pub /cmd_vel /geometry_msgs/msg/Twist "{linear: {x: 2.0, y: 0.0, z: 0.0}, angular: {x: 0.0, y: 0.0, z: 0.0}}"
+# 안됨 Thepassed message type is invalid
+
+ros2 topic echo /magnetic_field
+ros2 topic echo /imu
