@@ -13,3 +13,11 @@ cd colcon_ws
 	source ~/.bashrc
 	ros2 pkg excutables turtle_pkg
 	ros2 run turtle_pkg teleop_pub
+
+
+i,j,k,l
+i:전진, k:후진, j:좌회전, l:우회전
+
+
+ros2 run turtlesim turtlesim_node -r __ns:=/phil
+# ros2 run turtlesim turtlesim_node -r __ns:=/phil -r chatter:=/turtle1/cmd_vel
