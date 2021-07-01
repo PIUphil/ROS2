@@ -19,7 +19,7 @@ void TeleopPub::init_msg()
 void TeleopPub::forward()
 {
     this->init_msg();
-    this->msg_.linear.x = 2.0;
+    this->msg_.linear.x = 0.2;
     
     RCLCPP_INFO(this->get_logger(), "forward");
     this->publisher_->publish(msg_);
@@ -28,7 +28,7 @@ void TeleopPub::forward()
 void TeleopPub::backward()
 {
     this->init_msg();
-    this->msg_.linear.x = -2.0;
+    this->msg_.linear.x = -0.2;
 
     RCLCPP_INFO(this->get_logger(), "backward");
     this->publisher_->publish(msg_);
