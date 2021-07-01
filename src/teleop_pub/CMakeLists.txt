@@ -31,7 +31,7 @@ ament_target_dependencies(
   "sensor_msgs"
 )
 
-add_executable(teleop_pub src/teleop_pub/main.cpp src/teleop_pub/teleopPub.h src/teleop_pub/teleopPub.cpp)
+add_executable(teleop_pub src/teleop_pub/main.cpp src/teleop_pub/TeleopPub.h src/teleop_pub/TeleopPub.cpp)
 target_include_directories(teleop_pub PUBLIC
   $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
   $<INSTALL_INTERFACE:include>)
