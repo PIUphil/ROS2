@@ -6,9 +6,9 @@
 #include <geometry_msgs/msg/twist.hpp>
 
 
-class teleopPub : public rclcpp::Node {
+class TeleopPub : public rclcpp::Node {
 public:
-    teleopPub();
+    TeleopPub();
 
     void forward();
     void backward();
@@ -18,13 +18,13 @@ public:
 
 private:
     rclcpp::Publisher<geometry_msgs::msg::Twist>::SharedPtr publisher_;
-    rclcpp::TimerBase::SharedPtr timer_;
+    // rclcpp::TimerBase::SharedPtr timer_;
 
     geometry_msgs::msg::Twist msg_;
 
-    void initMsg();
+    void init_msg();
 
-    void timer_callback();
+    // void timer_callback();
 };
 
 #endif
