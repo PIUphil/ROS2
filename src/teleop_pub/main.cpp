@@ -1,5 +1,6 @@
-#include "teleopPub.h"
-#include <stdio.h>  
+#include "TeleopPub.h"
+//#include <stdio.h>  
+#include <iostream>
 // #include <term.h>
 #include <termios.h>  
 #include <unistd.h>
@@ -25,36 +26,42 @@ int getch(void)
 int main(int argc, char ** argv)
 {
   rclcpp::init(argc, argv);
-  
-  std::shared_ptr<teleopPub> teleoppub = std::make_shared<teleopPub>();
+  // Rclcpp::spin(std::make_shared<TeleopPub>());
+  std::shared_ptr<TeleopPub> teleopPub = std::make_shared<TeleopPub>();
      
 
   for(;;)
   {
-    std::cout << "input key(i,m,j,l,s): ";
+    std::cout << "input key(i,m,j,l,s,q): ";
     char ch;
     ch = getch();
   
-  
+
     switch(ch)
     {
     case 'i': case 'I':
-      teleoppub->forward(); 
+      teleopPub->forward(); 
       break;
     case 'm': case 'M':
-      teleoppub->backward(); 
+      teleopPub->backward(); 
       break;
     case 'j': case 'J':
-      teleoppub->rotateLeft(); 
+      teleopPub->rotateLeft(); 
       break;
     case 'l': case 'L':
-      teleoppub->rotateRight(); 
+      teleopPub->rotateRight(); 
       break;
     case 's': case 'S':
-      teleoppub->stop();
+      teleopPub->stop();
+      break;
+    case 'q': case 'Q':
+      teleopPub->stop();
+      goto out;
       break;
     }
   }
+
+  out:
 
   rclcpp::shutdown();
 
