@@ -1,0 +1,70 @@
+[터미널창열기] Ctrl+Alt+T
+pwd			/home/phil
+mkdir cpp
+cd cpp
+
+// 책 : Accelerated C++   // STL
+----------------------------------------------------
+
+gedit hello.cpp
+
+g++ -c hello.cpp			// 컴파일
+ls
+
+g++ -o hello hello.o		// -o : output	object...?
+./hello
+
+
+
+// const string greeting = "hello, world " + " " + name;
+// "hello, world" + " "  안됨... literal + literal은 안됨,,
+// "hello, world"  " " 으로 써야함.. 연속으로 써주면 하나의 literal로 인식함
+
+----------------------------------------------------
+<https://preview2.hanbit.co.kr/books/ywyc/#p=34>
+숙제 평균구하기
+
+gedit score.cpp
+g++ -c score.cpp
+g++ -o score score.o
+./score
+				// phil // 95 81 // 90 85 90 75 80
+ctrl + D  		// 문장 끝 (EOL ; End Of Line)
+
+----------------------------------------------------
+
+숙제 중간값 구하기
+cp score.cpp score2.cpp
+gedit score2.cpp
+
+g++ -c score2.cpp
+g++ -o score2 score2.o
+./score2
+				// phil // 99 99 // 90 80 90 0 0 // Ctrl+D
+
+----------------------------------------------------
+
+1~10 제곱구하기
+gedit squareOne2Ten.cpp
+
+----------------------------------------------------
+글자수 세기
+gedit wordCount.cpp
+
+gedit butter.txt
+
+./wordCount.cpp < butter.txt		// 파일로 읽어와서 실행
+
+
+
+운영체제를 활용하기 위해 만들어진 함수 -> System_Call  (C스타일)
+(윈도우에선 API ; Application Program Interface 라고 함)
+open close read write.. 제공
+
+표준 입력장치로부터 입력받을 파일을, 명시적으로 텍스트파일로부터 입력받아라 라는 뜻
+
+
+./wordCount < butter.txt > count.out
+cat count.out		// wordCount의 결과가 화면에 뜨지않고 파일로 저장(출력)됨
+
+<, > : redirect 연산
