@@ -35,9 +35,9 @@ bool SoundSrv::sendRequest() const
     auto result = client->async_send_request(this->request);
 
     //std::shared_ptr<SoundSrv> node_ptr;
-    rclcpp::node_interfaces::NodeBaseInterface::SharedPtr node_ptr;
+    //rclcpp::node_interfaces::NodeBaseInterface::SharedPtr node_ptr;
 
-    return (rclcpp::spin_until_future_complete(node_ptr, result) 
+    return (rclcpp::spin_until_future_complete(rclcpp::Node::make_shared("sound_srv"), result) 
           ==rclcpp::executor::FutureReturnCode::SUCCESS);
 
     // if (rclcpp::spin_until_future_complete(node, result) 
