@@ -1,0 +1,1 @@
+median대신 average사용
