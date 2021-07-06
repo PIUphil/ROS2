@@ -1,0 +1,106 @@
+[터미널]
+cd cpp
+cp score2.cpp score3.cpp
+gedit score3.cpp
+
+g++ -c score3.cpp
+g++ -o score3 score3.o
+./score3
+			//phil //90 90 //50 50 50 50 40
+
+gedit score.dat
+	```
+	smith 95 83 70 80 80 80 90
+	jane 59 50 45 0 0 60 50
+	wasington 95 73 50 50 50 50 50
+	baker 80 100 100 100 100 100 90
+	john 43 50 50 40 60 40 0
+	```
+
+cp score3.cpp score4.cpp
+gedit score4.cpp
+
+g++ -c score4.cpp
+g++ -o score4 score4.o
+./score4 < score.dat
+
+--------------------------------------
+[phil-VM:~/cpp$]
+mkdir scoreGrade
+cd scoreGrade
+
+[phil-VM:~/cpp/scoreGrade$]
+cp ../score4.cpp main.cpp
+gedit main.cpp median.h median.cpp grade.h grade.cpp student_info.h student_info.cpp
+
+
+g++ -c student_info.cpp
+g++ -c median.cpp
+g++ -c grade.cpp
+g++ -c main.cpp
+// 오브젝트 파일들이 만들어짐
+
+g++ -o testScore main.o median.o student_info.o grade.o
+
+cp ../score.dat .			// 뒤에 점 하나 붙이면 현재 디렉토리로 복사.
+
+./testScore < score.dat
+
+--------------------------------------
+
+cd ..
+
+[~/cpp$]
+mkdir scoreGrade2
+mkdir scoreGrade3
+cd scoreGrade2
+
+[~/cpp/scoreGrade2$]
+cp ../scoreGrade/*.cpp .
+cp ../scoreGrade/*.h .
+ls
+
+gedit student_info.h
+
+//이름이랑 최종점수만 들어가도록 double finalScore;
+
+
+g++ -c student_info.cpp
+g++ -c median.cpp
+g++ -c grade.cpp
+g++ -c main.cpp
+
+g++ -o testScore main.o median.o student_info.o grade.o
+
+cp ../score.dat .
+./testScore < score.dat
+
+
+// 자료받을때 맨 마지막에 EOL(End Of Line)이 있는데, 비어있는부분이라서
+// 자료를 있는부분만 보내기 위해서 if(in)을 넣어줌 <-student_info.cpp 46번줄
+
+
+
+cd ..
+
+[~/cpp$]
+cd scoreGrade3
+
+[~/cpp/scoreGrade3$]
+cp ../scoreGrade/*.cpp .
+cp ../scoreGrade/*.h .
+gedit average.h average.cpp
+
+
+			// rm median.*
+
+
+g++ -c student_info.cpp
+g++ -c average.cpp
+g++ -c grade.cpp
+g++ -c main.cpp
+
+g++ -o testScore main.o average.o student_info.o grade.o
+
+cp ../score.dat .
+./testScore < score.dat
