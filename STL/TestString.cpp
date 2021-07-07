@@ -71,6 +71,57 @@ vector<string> frame(const vector<string>& words)
 }
 
 
+vector<string> vcat(const vector<string>& v1, const vector<string>& v2)     // 문장 합치기
+{
+    vector<string> result;
+
+//    for(auto iter=v1.cbegin() ; iter!=v1.cend() ; ++iter)
+//        result.push_back(*iter);
+
+//    for(auto iter=v2.cbegin() ; iter!=v2.cend() ; ++iter)
+//        result.push_back(*iter);
+
+    result.insert(result.end(), v1.cbegin(), v1.cend());
+    result.insert(result.end(), v2.cbegin(), v2.cend());        //v2의 처음부터 끝까지를 end뒤에 추가
+
+    return result;
+}
+
+
+vector<string> hcat(const vector<string>& v1, const vector<string>& v2)
+{
+    string::size_type width1 = width(v1) + 1;       // +1 : 여백
+
+    vector<string> result;
+    //vector<string>::const_iterator i = 0;
+    auto iter1 = v1.cbegin();
+    auto iter2 = v2.cbegin();
+
+    while (iter1!=v1.cend() || iter2!=v2.cend()) {
+        string str;
+
+        if (iter1 != v1.cend())
+        {
+            str += *iter1;
+            ++iter1;
+        }
+
+        str += string(width1-str.size(), ' ');
+
+        if(iter1 != v2.cend())
+        {
+            str += *iter2;
+            ++iter2;
+        }
+
+        result.push_back(str);
+    }
+
+    return result;
+}
+
+
+
 int main()
 {
 
@@ -86,8 +137,20 @@ int main()
 //            cout << *iter << endl;
 
         vector<string> frameWords = frame(words);
-        for (auto iter=frameWords.cbegin() ; iter!=frameWords.cend() ; ++iter)
+//        for (auto iter=frameWords.cbegin() ; iter!=frameWords.cend() ; ++iter)
+//            cout << *iter << endl;
+
+
+//        vector<string> verticalWords = vcat(words, frameWords);
+//
+//        for(auto iter=verticalWords.cbegin() ; iter!=verticalWords.cend() ; ++iter)
+//            cout << *iter << endl;
+
+
+        vector<string> horiWords = hcat(words, frameWords);
+        for(auto iter=horiWords.cbegin() ; iter!=horiWords.cend() ; ++iter)
             cout << *iter << endl;
+
 
     }
 
