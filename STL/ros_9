@@ -1,0 +1,121 @@
+[터미널]
+clion &
+
+File - Open - TestString
+File - NewProject - TestString2
+(TestString에서 2로) main.cpp복사해옴
+
+------------------------------------------------------------
+구글 -> c++ reference
+https://en.cppreference.com/w/
+search -> copy
+https://en.cppreference.com/w/cpp/algorithm/copy
+
+OutputIt copy( InputIt first, InputIt last, OutputIt d_first );
+	Input_iterate first 복사 처음위치
+	Input_iterate last	복사 마지막위치
+	Output_iterate first 들어갈 곳
+
+copy_if : 조건을 만족할 때 복사함
+------------------------------------------------------------
+
+(vcat부분 수정)
+insert대신 copy사용
+
+
+// find 검색
+https://en.cppreference.com/w/cpp/algorithm/find
+find( InputIt first, InputIt last, const T& value );
+find_if( InputIt first, InputIt last, UnaryPredicate p );
+
+
+//
+predicate(함수)를 안쓸거면 람다식으로 사용
+
+
+
+Palindrome2 (palindrome함수 equal을 사용하여 축약)
+
+copy -> ScoreGrade4 >> ScoreGrade5
+
+
+extract_fails (remove_copy_if) 부분에서
+	ppffpfpf이런식으로 있다면 (p=pass, f=fail)
+	f가 빠지고 pppp가 된 후에
+	뒤에 pfpf가 남아있음,, 지워줘야함(erase)
+
+	remove_if를 하면 4번째꺼까지 간 후 다음위치를 반환함
+	그 후에 뒤까지 다 지워주면 됨
+
+
+
+
+// 단어들을 모아서 문자열로 만들기
+
+string addString(const vector<string>& words)
+{
+
+}
+--> TestString2
+
+
+
+====(( Map사용 ))====
+
+wordCount   	// 단어 등장 횟수 
+
+cd cmake-build-debug
+./wordCount < ../butter.dat
+
+balanced binary search tree 균형잡힌 이진트리 -> map
+
+
+
+>> smooth like butter like a criminal undercover
+------------------------------------------------------------
+			smooth
+			/
+		like				=>				like
+		/				  균형잡음				/	\
+butter									butter	smooth
+------------------------------------------------------------
+-> 균형 잡으면 가장 끝에까지 접근하는데 시간이 빨라짐
+한쪽으로 치우친 트리 -> skewed tree(사향트리)
+
+------------------------------------------------------------
+					like
+					/  \
+				butter	smooth
+				/	\		\
+			  a   criminal 	 undercover
+------------------------------------------------------------
+
+
+CrossReference		// 단어가 몇 번 줄(라인)에 나왔었는지 찾기
+
+cd cmake-build-debug
+./wordCount < ../butter.dat
+
+
+
+
+1)
+A - 1
+B - 2
+C - 0
+D - 0
+F - 2
+
+
+2)
+A - smith
+B - 
+C - washington
+D - 
+F - 
+
+
+
+
+
+
