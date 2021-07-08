@@ -161,6 +161,20 @@ vector<string> hcat(const vector<string>& v1, const vector<string>& v2)
 }
 
 
+string addString(const vector<string>& words)
+{
+    string s;
+
+    for(auto iter = words.cbegin() ; iter!=words.cend() ; ++iter)
+        s += *iter;
+//        copy(iter->cbegin(), iter->cend(), back_inserter(s));
+
+//    accumulate(words.cbegin(), words.cend(), s);          // 문장마다 끝에 \0이 붙어있어서 안된다..?
+
+    return s;
+}
+
+
 
 int main()
 {
@@ -191,6 +205,7 @@ int main()
             cout << *iter << endl;
 
 
+        cout << "accu : " << addString(words) << endl;
     }
 
     return 0;
