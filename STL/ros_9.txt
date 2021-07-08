@@ -76,7 +76,7 @@ balanced binary search tree 균형잡힌 이진트리 -> map
 			smooth
 			/
 		like				=>				like
-		/				  균형잡음				/	\
+	/				  균형잡음				/	\
 butter									butter	smooth
 ------------------------------------------------------------
 -> 균형 잡으면 가장 끝에까지 접근하는데 시간이 빨라짐
