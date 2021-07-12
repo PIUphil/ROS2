@@ -34,6 +34,8 @@ typedef std::ptrdiff_t difference_type;         // 포인터간 차이
     reference_type operator[](int index);
     const_reference_type operator[](int index) const;
 
+    const Vec<T>& operator=(const Vec<T>& rhs);
+
     iterator begin() { return this->data_; }        // 클래스 안에서 함수 정의 - 인라인함수
     iterator end() { return this->avail_; }
     const_iterator cbegin() const { return this->data_; }
@@ -98,7 +100,7 @@ void Vec<T>::uncreate()
             this->alloc_.destroy(iter);
         }
 
-        this->alloc_deallocate(this->data_, this->limit_-this->data_);
+        this->alloc_.deallocate(this->data_, this->limit_ - this->data_);
     }
 
     this->data_ = this->avail_ = this->limit_ = 0;
@@ -108,7 +110,7 @@ void Vec<T>::uncreate()
 template <typename T>
 void Vec<T>::grow()                             // 사이즈 2배로 늘리기
 {
-    size_type new_size = std::max(2*(this->limit_-this->data_), 1);     // 비어있으면 그냥 1로 줌
+    size_type new_size = std::max(2*(this->limit_-this->data_), static_cast<difference_type>(1));     // 비어있으면 그냥 1로 줌
 
 //    if(this->data_ ==0)
 //        new_size = 1;
@@ -157,9 +159,7 @@ Vec<T>::Vec(const_iterator begin, const_iterator end)
 template <typename T>
 Vec<T>::Vec(const Vec<T>& rhs)
 {
-    this->create(rhs.data_, rhs.limit_);
-
-    return *this;
+    this->create(rhs.data_, rhs.avail_);
 }
 
 
@@ -175,9 +175,10 @@ const Vec<T>& Vec<T>::operator=(const Vec<T>& rhs)
 {
     if (this != &rhs) {
         this->uncreate();
-        this->create(rhs.data_, rhs.avil_);
+        this->create(rhs.data_, rhs.avail_);
     }
 
+    return *this;
 }
 
 
