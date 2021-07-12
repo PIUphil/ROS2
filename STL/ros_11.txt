@@ -1,0 +1,52 @@
+추상 데이터 타입 (abstract data type)
+
+추상 기본(기저) 클래스 (abstract base class, ABC) - 순수 가상 함수를 한개 이상 가진 클래스
+ex) shape클래스, area클래스
+    객체를 만들순 없지만 포인터를 만들어서 함수의 인자 전달할 때 사용,,?
+
+
+clion   // Vec
+New 0 C++/class - Create header only
+
+[생성자 복사생성자 소멸자 치환 &2개]
+
+explicit - 형태 고정
+
+one interface multi method?  - overloading, default인자
+
+
+// int() 으로 쓰면 인터형 0이 생성됨..
+
+
+data_  ㅁ ->
+limit_ ㅁ ->					        [             |        ]
+  (할당된 공간의 다음위치)       data_       avail    limit
+avail  ㅁ ->
+  (마지막 데이터의 다음위치)
+
+
+
+	this->data_ = new T[size];		// 공간 할당
+	...
+
+	delete [] this->data_;
+
+new/delete를 하면 heep상에 공간할당하고 생성자(디폴트) 호출함
+디폴트 생성자가 없으면 호출안됨...;;
+[class T에 기본생성자가 없으면 동작X]
+
+
+	Employee *employees[5];
+	employees[0] = new Employee("park", 1);
+	...
+
+
+cppreference.com
+allocator(할당자)
+https://en.cppreference.com/w/cpp/memory/allocator
+
+allocate <-> deallocate	공간할당
+construct <-> destroy	
+
+deep-copy or shallow-copy &레퍼런스 사용
+(Vec.h는 딥카피 사용했었음)
