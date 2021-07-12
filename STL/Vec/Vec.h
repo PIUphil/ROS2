@@ -6,7 +6,8 @@
 #define VEC_VEC_H
 
 #include <memory>           // allocator
-#include <algorithm>        // Max
+#include <algorithm>        // max
+
 
 template <typename T>
 class Vec {
@@ -42,6 +43,12 @@ typedef std::ptrdiff_t difference_type;         // 포인터간 차이
     const_iterator cend() const { return this->avail_; }
 
     void push_back(const_reference_type val);
+
+
+    iterator erase(iterator iter);
+    iterator erase(iterator begin, iterator end);
+
+    void clear();
 
 
 private:
@@ -209,6 +216,45 @@ void Vec<T>::push_back(Vec<T>::const_reference_type val)
     this->unchecked_append(val);
 }
 
+
+template <typename T>
+typename Vec<T>::iterator Vec<T>::erase(iterator iter)
+{
+    std::copy(iter+1, this->avail_, iter);
+    this->alloc_.destroy(this->avail_);
+    --this->avail_;
+
+    return iter+1;
+}
+
+
+template <typename T>
+typename Vec<T>::iterator Vec<T>::erase(iterator begin, iterator end)
+{
+    iterator new_avail_;
+    if(end == this->avail_)
+        new_avail_ = begin;
+    else
+        new_avail_ = std::copy(end+1, this->avail_, begin);
+
+    iterator iter = this->avail_;
+    while (iter != new_avail_)
+    {
+        --iter;
+        this->alloc_.destroy(iter);
+    }
+
+    this->avail_ = new_avail_;
+
+    return end+1;
+}
+
+
+template <typename T>
+void Vec<T>::clear()
+{
+    this->uncreate();
+}
 
 
 
