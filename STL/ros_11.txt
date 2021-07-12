@@ -19,7 +19,7 @@ one interface multi method?  - overloading, default인자
 
 
 data_  ㅁ ->
-limit_ ㅁ ->					        [             |        ]
+limit_ ㅁ ->		     [             |        ]
   (할당된 공간의 다음위치)       data_       avail    limit
 avail  ㅁ ->
   (마지막 데이터의 다음위치)
