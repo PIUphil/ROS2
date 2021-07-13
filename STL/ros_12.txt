@@ -1,0 +1,9 @@
+new/delete 단점보완 --> allocate
+ --> sharedPtr (객체관리)
+
+
+ScoreGrade9
+ + 대학원생 논문점수
+
+Core - 학생(학부)
+Grad - 대학원생
