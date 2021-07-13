@@ -31,11 +31,12 @@ public:
     Vec(const Vec<T>& rhs);     // 복사생성자
     ~Vec();
 
+    const Vec<T>& operator=(const Vec<T>& rhs);
+    bool operator==(const Vec<T>& rhs) const;
+
     size_type size() const;
     reference_type operator[](int index);
     const_reference_type operator[](int index) const;
-
-    const Vec<T>& operator=(const Vec<T>& rhs);
 
     iterator begin() { return this->data_; }        // 클래스 안에서 함수 정의 - 인라인함수
     iterator end() { return this->avail_; }
@@ -186,6 +187,12 @@ const Vec<T>& Vec<T>::operator=(const Vec<T>& rhs)
     }
 
     return *this;
+}
+
+template <typename T>
+bool Vec<T>::operator==(const Vec<T>& rhs) const
+{
+    return std::equal(this->cbegin(), this->cend(), rhs.cbegin());
 }
 
 
