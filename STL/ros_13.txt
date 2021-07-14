@@ -1,0 +1,44 @@
+다형성 Polymorphism
+ //shape타입의 포인터를 써서 자식객체를 가리킴.. area			rtti ; runtime type information
+부모클래스의 포인터나 레퍼런스가 자식클래스의 객체를 가리킬 수 있다
+
+원래 타입으로 돌아갈 때,,?  dynamic_cast
+
+handle class --> Student_info
+
+Build
+[terminal]
+cd cmake-build-debug/
+./ScoreGrade9 < ../score.dat
+
+
+Core, Grad --> body_class
+Student_info --> wrapping_class
+
+
+메뉴에서 Run - Edit Configurations 들어가서
+Redirect input from 에서 '../score2.dat'를 해주면
+터미널에서 입력을 추가로 해주지 않아도 됨
+
+
+청강생class (Auditor) 만들기
+- 학부생과 똑같이 과제를 낼 수도 있고, 안낼 수도 있다.
+- 과제를 낸 경우에는 학부생과 똑같이 최종 점수를 구한다.
+- 과제를 내지 않은 경우에는 중간고사, 기말고사 성적의 평균을 최종점수로 함.
+
+class Auditor : public Core {}
+
+
+regrade --> 오버로드   // 오버라이딩(재정의) 아님 -- 오버로딩 read, grade --> virtual 써줘야함
+Core부모 는 인자 1개 / Grad자식 은 인자 2개
+
+
+<개념알기>
+	정보은닉, 캡슐화
+	오버로딩,오버라이딩 
+	다형성
+
+
+shared_ptr		--> shallow copy
+unique_ptr	    --> deepcopy
+
