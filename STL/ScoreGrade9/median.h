@@ -3,11 +3,15 @@
 
 #include <vector>
 #include <algorithm>
+#include <stdexcept>
 
 
 template <typename T>
 T median(const std::vector<T>& vec)
 {
+    if(vec.empty())
+        throw std::domain_error("vector is empty");
+
     std::vector<T> tmp = vec;
     std::sort(tmp.begin(), tmp.end());
 

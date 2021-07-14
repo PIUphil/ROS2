@@ -1,6 +1,17 @@
 #include "Core.h"
 #include "grade.h"
 
+/*
+bool compare(const Core& s1, const Core& s2)
+{
+    return s1.name() < s2.name();               // 알파벳순 비교
+}
+
+bool compare_ptr(const Core *pCore1, const Core *pCore2)
+{
+    return pCore1->name() < pCore2->name();
+}
+*/
 
 std::istream& read_hw(std::istream& in, std::vector<double>& homeworks)
 {
@@ -34,6 +45,13 @@ Core::Core(std::istream &in)
     this->read(in);
 }
 
+
+void Core::regrade(double finalterm)
+{
+    this->finalterm_ = finalterm;
+}
+
+
 std::istream& Core::read(std::istream& in)
 {
 //    in >> this->name_;
@@ -53,4 +71,9 @@ std::string Core::name() const
 double Core::grade() const
 {
     return ::grade(this->midterm_, this->finalterm_, this->homeworks_);
+}
+
+Core* Core::clone() const
+{
+    return new Core(*this);             // 자신과 같은 복제본 생성
 }

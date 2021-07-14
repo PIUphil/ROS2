@@ -1,0 +1,58 @@
+#include <iostream>
+#include <vector>
+#include <algorithm>            // sort, max
+#include <stdexcept>            // domain_error
+#include <string>
+#include <ios>
+#include <iomanip>              // precision, setprecision
+
+#include "Core.h"               // 대학원생은 "Grad.h" 가져와서 사용
+
+using namespace std;
+
+
+int main()
+{
+    vector<Core> students;
+
+    string::size_type maxLen = 0;
+
+    Core student;
+    while (student.read(cin))
+    {
+        students.push_back(student);
+        maxLen = max(maxLen, student.name().size());
+    }
+
+    sort(students.begin(), students.end(), compare);
+
+
+    //for(vector<Core>::const_iterator iter=students.cbegin() ; iter!= students.cend() ; ++iter)
+    for(auto iter=students.cbegin() ; iter!= students.cend() ; ++iter)
+    {
+        cout << iter->name() << string(maxLen-iter->name().size(), ' ') << " : ";
+
+        try
+        {
+            double score = iter->grade();
+            streamsize ss = cout.precision();
+            cout << setprecision(3) << score << setprecision(ss) << endl;
+        }
+        catch (domain_error e)
+        {
+            cerr << e.what() << endl;
+        }
+
+    }
+
+
+    /*
+    Core *pCore = new Grad();           // 부모클래스의 포인터는 자식클래스의 객체를 가리킬 수 있다  // 다형성 polymorphism
+    pCore->read(std::cin);
+    pCore->grade();
+
+    delete pCore;
+     */
+
+    return 0;
+}

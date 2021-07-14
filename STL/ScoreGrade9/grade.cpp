@@ -1,6 +1,7 @@
+#include <stdexcept>    // domain_error
+
 #include "median.h"
 #include "grade.h"
-
 
 
 double grade(double midterm, double finalterm, double homework)
@@ -10,6 +11,9 @@ double grade(double midterm, double finalterm, double homework)
 
 double grade(double midterm, double finalterm, const std::vector<double>& homeworks)
 {
+    if (homeworks.empty())
+        throw std::domain_error("didn't all homeworks");
+
     return ::grade(midterm, finalterm, median(homeworks));
 }
 

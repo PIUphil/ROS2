@@ -7,18 +7,28 @@
 #include <vector>
 
 
+class Core;
+//bool compare(const Core& s1, const Core& s2);
+//bool compare_ptr(const Core *pCore1, const Core *pCore2);
+
 std::istream& read_hw(std::istream& in, std::vector<double>& homeworks);
 
 
 class Core {
-public:
+friend class Student_info;
+//public:
+protected:
     Core();
     Core(std::istream& in);
-    std::istream& read(std::istream& in);
+    virtual ~Core() {}              // 버츄얼을 한번이라도 사용하면 소멸자도 버츄얼로 만들어줘야함,,
 
     std::string name() const;
-    double grade() const;
+    void regrade(double finalterm);
 
+    virtual std::istream& read(std::istream& in);
+    virtual double grade() const;
+
+    virtual Core* clone() const;
 
 protected:
     double midterm_;
