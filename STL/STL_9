@@ -1,0 +1,19 @@
+Handle
+ ptrㅁ    ->     Core타입의 포인터
+
+					Clone		<-- ㅁ
+
+
+   ptr ㅁ  -->   ㅇ   <--  ㅁ
+   r.c ㅁ  -->   ㅇ   <--  ㅁ
+
+
+	deep_copy = shallow_copy + reference_count		
+
+
+class RefCount
+{
+	...				// has-a
+}
+제작 
+--> Handle클래스 수정
