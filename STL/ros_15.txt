@@ -1,0 +1,48 @@
+      StringPic
+----------------------
+- data_ : vector<string>
+
+----------------------
+- 생성자
++ width	  : size_t
++ height  : size_t
++ display : void
+
+
+
+      FramePic
+----------------------
+data_ : Handle<PicBase>
+
+----------------------
+- 생성자
++ width	  : size_t
++ height  : size_t
++ display : void								PicBase			--> ABC(추상기저클래스) 
+											-------------------	// 순수가상함수 한개이상 가짐 
+																// 객체 못만듦 - 포인터와 레퍼런스만 사용
+
+      HCatPic
+----------------------						-----------------
+- left  : Handle<PicBase>					+ width	  : size_t
+- right : Handle<PicBase>					+ height  : size_t		( virtual )
+											+ display : void
+----------------------						
+- 생성자
++ width	  : size_t
++ height  : size_t
++ display : void
+
+
+
+      VCatPic
+----------------------
+- top    : Handle<PicBase>
+- bottom : Handle<PicBase>
+
+----------------------
+- 생성자
++ width	  : size_t
++ height  : size_t
++ display : void
+
